@@ -1,38 +1,72 @@
-# vue-v3
+# Задания
 
-This template should help get you started developing with Vue 3 in Vite.
+## Задача 1. [translate:Привет, Vue!] (1 балл)
 
-## Recommended IDE Setup
+Создайте простое приложение, в котором:
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- отображается приветствие с именем пользователя;
+- имя задаётся через переменную `name` в `data()`;
+- текст на экране обновляется автоматически при изменении значения в `input`.
 
-## Recommended Browser Setup
+Фокус: интерполяция (`{{ }}`) и директива `v-model`.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+---
 
-## Customize configuration
+## Задача 2. [translate:Реактивный счётчик] (1 балл)
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Создайте кнопку и текст с числом.  
+При каждом нажатии на кнопку значение счётчика должно увеличиваться.
 
-## Project Setup
+Фокус: реактивные данные (`ref`) и обработка событий (`@click`).
 
-```sh
-npm install
-```
+---
 
-### Compile and Hot-Reload for Development
+## Задача 3. [translate:Условный рендеринг] (1 балл)
 
-```sh
-npm run dev
-```
+Добавьте кнопку “Показать/Скрыть описание”.  
+При нажатии текстовое описание должно показываться или скрываться.
 
-### Compile and Minify for Production
+Фокус: директивы `v-if`, `v-else` или `v-show`.
 
-```sh
-npm run build
-```
+---
+
+## Задача 4. [translate:Список элементов] (1 балл)
+
+Создайте массив задач (или товаров) и выведите их с помощью `v-for`.  
+Для каждого элемента выведите название и порядковый номер.
+
+Фокус: `v-for` и уникальные ключи `:key`.
+
+---
+
+## Задача 5. [translate:Мини-форма] (1 балл)
+
+Создайте компонент с двумя полями ввода: имя и возраст.  
+При нажатии на кнопку “Добавить” объект добавляется в массив и отображается на экране.  
+Форма очищается после отправки.
+
+Фокус: `v-model`, обработка событий (`@submit.prevent`), работа с массивами.
+
+---
+
+## Задача 6. [translate:Вычисляемые свойства] (1 балл)
+
+Добавьте компонент с полем ввода с числом и отобразите:
+
+- само число;
+- его квадрат и куб.
+
+Фокус: вычисляемые свойства (`computed`).
+
+---
+
+## Задача 7. [translate:Watch и жизненный цикл] (2 балла)
+
+Создайте компонент, который:
+
+- хранит текущее время (обновляется каждую секунду);
+- следит за изменением времени через `watch`;
+- выводит сообщение в консоль при каждом обновлении;
+- выводит приветствие (“Доброе утро”, “Добрый вечер”) в зависимости от текущего часа.
+
+Фокус: `onMounted`, `watch`, реактивность.
