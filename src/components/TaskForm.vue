@@ -80,7 +80,7 @@ export default {
             .modal-task-input{  
                 border: 0;
                 border-radius: 10px;
-                width: 280px;
+                width: 90%;
                 height: 40px;
                 padding-left: 20px;
                 font-size: $stat-font-size;
@@ -116,7 +116,13 @@ export default {
 @include respond-to(mobile){
     .modal{
         &-task{
-            width: 200px;
+            min-width: 220px;
+            &-form{
+              .modal-task-input{  
+                font-size: 1.1em;
+                padding-left: 10px;
+              } 
+            }
         }
     }
 }

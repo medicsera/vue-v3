@@ -71,13 +71,13 @@ export default {
         width: 220px;
         
         .search-task{
-            width: 100%;
+            width: 160px;
             margin: 0 5px;
         }  
         
         .search-task-input{
-            width: 150px;
-            font-size: 1.1em;
+            width: 110px;
+            font-size: 0.9em;
         }
 
         .open-modal-btn{
