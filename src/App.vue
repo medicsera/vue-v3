@@ -3,12 +3,13 @@
     <div class="page__container">
       <SearchBar v-model="searchQuery" @open-modal="showModal = true" />
       <TaskList
-        :tasks="filteredTasks, sortedTasks"
+        :tasks="sortedTasks"
         @delete-task="deleteTask"
         @toggle-completed="toggleCompleted"
       />
       <TaskForm v-if="showModal" @close="showModal = false" @add-task="addTask" />
     </div>
+    <ThemeToggle/>
   </div>
 </template>
 
@@ -17,23 +18,24 @@ import { ref, computed } from 'vue';
 import TaskList from './components/TaskList.vue';
 import TaskForm from './components/TaskForm.vue';
 import SearchBar from './components/SearchBar.vue';
+import ThemeToggle from './components/ThemeToggle.vue';
 
 export default {
-  components: { TaskList, TaskForm, SearchBar },
+  components: { TaskList, TaskForm, SearchBar, ThemeToggle},
   setup() {
     const tasks = ref([]);
     const showModal = ref(false);
     const searchQuery = ref('');
 
-    const filteredTasks = computed(() => {
-      if (!searchQuery.value) return tasks.value;
-      return tasks.value.filter((t) =>
-        t.text.toLowerCase().includes(searchQuery.value.toLowerCase())
-      );
-    });
-
     const sortedTasks = computed(() => {
-      tasks.value.slice().sort((a,b) => {
+      let filtered = tasks.value;
+      if (searchQuery.value){
+        filtered = filtered.filter(t => {
+          t.text.toLowerCase().includes(searchQuery.value.toLowerCase())
+        }) 
+      };
+
+      return filtered.slice().sort((a,b) => {
         if (a.completed === b.completed) return 0;
         return a.completed ? 1 : -1;
       })
@@ -74,7 +76,6 @@ export default {
       tasks,
       showModal,
       searchQuery,
-      filteredTasks,
       sortedTasks,
       addTask,
       deleteTask,

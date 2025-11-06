@@ -27,7 +27,7 @@ $breakpoint-desktop-min: 1024px;
     --color-font: #{$color-black};
     --color-switch: #{$color-light-purple};
 }
-:root.dark-theme{
+body.dark-theme{
     --bg-color: #{$color-black-theme};
     --color-item: #{$color-black-theme};
     --color-btn-bg: #{$color-light-purple};
