@@ -4,8 +4,9 @@
       <SearchBar v-model="searchQuery" @open-modal="showModal = true" />
       <TaskList
         :tasks="sortedTasks"
-        @delete-task="deleteTask"
         @toggle-completed="toggleCompleted"
+        @delete-task="deleteTask"
+        @edit-task="editTask"
       />
       <TaskForm v-if="showModal" @close="showModal = false" @add-task="addTask" />
     </div>
@@ -70,6 +71,13 @@ export default {
       tasks.value = saved ? JSON.parse(saved) : [];
     }
 
+    function editTask({id, text}) {
+      const t = tasks.value.find(e => e.id === id);
+      if (t) t.text = text;
+      saveTasks();
+    }
+
+
     loadTasks();
 
     return {
@@ -80,6 +88,7 @@ export default {
       addTask,
       deleteTask,
       toggleCompleted,
+      editTask,
     };
   },
 };
