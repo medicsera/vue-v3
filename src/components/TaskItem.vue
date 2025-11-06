@@ -1,31 +1,15 @@
 <template>
   <div class="task-item">
     <div class="task-item-left">
-      <span
-        v-if="!isEditing"
-        class="task-text"
-        :class="{ completed: task.completed }"
-        @dblclick="startEdit"
-      >
+      <span v-if="!isEditing" class="task-text" :class="{ completed: task.completed }" @dblclick="startEdit">
         {{ task.text }}
       </span>
-      <input
-        v-else
-        class="task-edit-input"
-        v-model="editText"
-        @blur="finishEdit"
-        @keyup.enter="finishEdit"
-        @keyup.esc="cancelEdit"
-        autofocus
-      />
+      <input v-else class="task-edit-input" v-model="editText" @blur="finishEdit" @keyup.enter="finishEdit"
+        @keyup.esc="cancelEdit" autofocus />
     </div>
     <div class="task-item-right">
-      <input
-        type="checkbox"
-        class="task-checkbox"
-        :checked="task.completed"
-        @change="$emit('toggle-completed', task.id)"
-      />
+      <input type="checkbox" class="task-checkbox" :checked="task.completed"
+        @change="$emit('toggle-completed', task.id)" />
       <button class="del-btn" @click="$emit('delete-task', task.id)">&#128465;</button>
     </div>
   </div>
@@ -60,75 +44,76 @@ function cancelEdit() {
 </script>
 
 <style scoped lang="scss">
-.task{
+.task {
 
-    &-item{
-        @include flex-center;
-        @include border;
-        color: var(--color-font);
-        align-items: center;
-        width: 460px;
-        height: 76px;
-        background: var(--color-item);
-        justify-content: space-between;
-        margin-top: 20px ;
-        transition: opacity 0.5s, height 0.5s, margin 0.5s, padding 0.5s;
+  &-item {
+    @include flex-center;
+    @include border;
+    color: var(--color-font);
+    align-items: center;
+    width: 460px;
+    height: 76px;
+    background: var(--color-item);
+    justify-content: space-between;
+    margin-top: 20px;
+    transition: opacity 0.5s, height 0.5s, margin 0.5s, padding 0.5s;
 
-        &-right{
-            @include flex-center;
-            align-items: center; 
-            margin-right: 30px;
-            opacity: 0;
+    &-right {
+      @include flex-center;
+      align-items: center;
+      margin-right: 30px;
+      opacity: 0;
 
-            .del-btn{
-                font-size: 0.9em;
-                width: 28px;
-                height: 28px;
-                background: var(--color-btn-bg);
-                color: var(--color-btn-img);
-                border-radius: 5px;
-                border: 0;
-             }
-
-        }
-
-        &:hover .task-item-right{
-            transition: all 0.3s ease;
-            opacity: 1;
-        }
-
-        &-left{
-            margin-left: 20px;
-        }
-
-        &.removing{
-            opacity: 0;
-            height: 0;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-    }
-
-    &-checkbox{
+      .del-btn {
+        font-size: 0.9em;
         width: 28px;
         height: 28px;
-        margin: 0 10px;
-        accent-color: var(--color-btn-bg);
-    }
-    
+        background: var(--color-btn-bg);
+        color: var(--color-btn-img);
+        border-radius: 5px;
+        border: 0;
+      }
 
-    &-text{
-        max-width: 200px;
-        word-break: break-all;
-        transition: color 0.4s, text-decoration 0.4s;
-
-        &.completed{
-            color: $color-green;
-            text-decoration: line-through;
-        }
     }
+
+    &:hover .task-item-right {
+      transition: all 0.3s ease;
+      opacity: 1;
+    }
+
+    &-left {
+      margin-left: 20px;
+    }
+
+    &.removing {
+      opacity: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+
+  &-checkbox {
+    width: 28px;
+    height: 28px;
+    margin: 0 10px;
+    accent-color: var(--color-btn-bg);
+  }
+
+
+  &-text {
+    max-width: 200px;
+    word-break: break-all;
+    transition: color 0.4s, text-decoration 0.4s;
+
+    &.completed {
+      color: $color-green;
+      text-decoration: line-through;
+    }
+  }
 }
+
 .task-edit-input {
   width: 90%;
   font-size: 1em;
@@ -137,30 +122,29 @@ function cancelEdit() {
   border-radius: 5px;
 }
 
-@include respond-to(mobile){
-    .task{
+@include respond-to(mobile) {
+  .task {
 
-        &-item{
-            width: 100%;
-            min-height: 60px;
+    &-item {
+      width: 100%;
+      min-height: 60px;
 
 
-            &-right{
-                margin-right: 5px;
+      &-right {
+        margin-right: 5px;
 
-                .del-btn{
-                    width: 20px;
-                    height: 20px;
-                    font-size: 0.7em;
-                }
-            }
+        .del-btn {
+          width: 20px;
+          height: 20px;
+          font-size: 0.7em;
         }
+      }
+    }
 
-        &-checkbox{
-            width: 20px;
-            height: 20px;
-        }
-
+    &-checkbox {
+      width: 20px;
+      height: 20px;
+    }
     }
 }
 </style>

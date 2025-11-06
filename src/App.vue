@@ -11,28 +11,28 @@
 </template>
 
 <script>
-import { ref, computed, watch } from 'vue';
-import TaskList from './components/TaskList.vue';
-import TaskForm from './components/TaskForm.vue';
-import SearchBar from './components/SearchBar.vue';
-import ThemeToggle from './components/ThemeToggle.vue';
+import { ref, computed, watch } from "vue";
+import TaskList from "./components/TaskList.vue";
+import TaskForm from "./components/TaskForm.vue";
+import SearchBar from "./components/SearchBar.vue";
+import ThemeToggle from "./components/ThemeToggle.vue";
 
 export default {
   components: { TaskList, TaskForm, SearchBar, ThemeToggle },
   setup() {
     const tasks = ref([]);
     const showModal = ref(false);
-    const searchQuery = ref('');
+    const searchQuery = ref("");
 
     function loadTasks() {
-      const saved = localStorage.getItem('tasks');
+      const saved = localStorage.getItem("tasks");
       tasks.value = saved ? JSON.parse(saved) : [];
     }
 
     watch(
       tasks,
       (newTasks) => {
-        localStorage.setItem('tasks', JSON.stringify(newTasks));
+        localStorage.setItem("tasks", JSON.stringify(newTasks));
       },
       { deep: true }
     );
@@ -40,7 +40,7 @@ export default {
     const sortedTasks = computed(() => {
       let filtered = tasks.value;
       if (searchQuery.value) {
-        filtered = filtered.filter(t =>
+        filtered = filtered.filter((t) =>
           t.text.toLowerCase().includes(searchQuery.value.toLowerCase())
         );
       }
@@ -57,25 +57,31 @@ export default {
 
     function deleteTask(id) {
       if (confirm("Вы точно хотите удалить эту задачу?")) {
-        tasks.value = tasks.value.filter(t => t.id !== id);
+        tasks.value = tasks.value.filter((t) => t.id !== id);
       }
     }
 
     function toggleCompleted(id) {
-      const task = tasks.value.find(t => t.id === id);
+      const task = tasks.value.find((t) => t.id === id);
       if (task) task.completed = !task.completed;
     }
 
     function editTask({ id, text }) {
-      const t = tasks.value.find(e => e.id === id);
+      const t = tasks.value.find((e) => e.id === id);
       if (t) t.text = text;
     }
 
     loadTasks();
 
     return {
-      tasks, showModal, searchQuery,
-      sortedTasks, addTask, deleteTask, toggleCompleted, editTask
+      tasks,
+      showModal,
+      searchQuery,
+      sortedTasks,
+      addTask,
+      deleteTask,
+      toggleCompleted,
+      editTask,
     };
   },
 };
