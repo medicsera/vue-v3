@@ -1,24 +1,23 @@
 <template>
-    <div class="task">
-        <div class="task-item" v-for="task in tasks" :key="task.id">
-            <div class="task-item-left" >
-                <span  class="task-text" :class="{ completed: task.completed }">{{ task.text }}</span>
-            </div>
-            <div class="task-item-right">
-                <input type="checkbox" class="task-checkbox" :checked="task.completed"
-                    @change="$emit('toggle-completed', task.id)" />
-                <button class="del-btn" @click="$emit('delete-task', task.id)">&#128465;</button>
-            </div>
-        </div>
-    </div>
+  <div class="task">
+    <TaskItem
+      v-for="task in tasks"
+      :key="task.id"
+      :task="task"
+      @toggle-completed="$emit('toggle-completed', task.id)"
+      @delete-task="$emit('delete-task', task.id)"
+      @edit-task="$emit('edit-task', $event)"
+    />
+  </div>
 </template>
 
-<script>
-export default {
-    props: {
-        tasks: Array,
-    },
-};
+<script setup>
+import TaskItem from './TaskItem.vue';
+
+defineProps({
+  tasks: Array
+});
+defineEmits(['toggle-completed', 'delete-task', 'edit-task']);
 </script>
 
 <style scoped lang="scss">
@@ -27,74 +26,6 @@ export default {
     font-size: $stat-font-size;
     display: grid;
     width: 100%;
-
-    &-item{
-        @include flex-center;
-        @include border;
-        color: var(--color-font);
-        align-items: center;
-        width: 460px;
-        height: 76px;
-        background: var(--color-item);
-        justify-content: space-between;
-        margin-top: 20px ;
-        transition: opacity 0.5s, height 0.5s, margin 0.5s, padding 0.5s;
-
-        &-right{
-            @include flex-center;
-            align-items: center; 
-            margin-right: 30px;
-            opacity: 0;
-
-            .del-btn{
-                font-size: 0.9em;
-                width: 28px;
-                height: 28px;
-                background: var(--color-btn-bg);
-                color: var(--color-btn-img);
-                border-radius: 5px;
-                border: 0;
-             }
-
-        }
-
-        &:hover .task-item-right{
-            transition: all 0.3s ease;
-            opacity: 1;
-        }
-
-        &-left{
-            margin-left: 20px;
-        }
-
-        &.removing{
-            opacity: 0;
-            height: 0;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-    }
-
-    &-checkbox{
-        width: 28px;
-        height: 28px;
-        margin: 0 10px;
-        accent-color: var(--color-btn-bg);
-    }
-    
-
-    &-text{
-        max-width: 200px;
-        word-break: break-all;
-        transition: color 0.4s, text-decoration 0.4s;
-
-        &.completed{
-            color: $color-green;
-            text-decoration: line-through;
-        }
-    }
-    
 }
 
 @include respond-to(mobile){
@@ -102,28 +33,6 @@ export default {
         width: 220px;
         font-size: 1.1em;
         padding: 20px 0px;
-
-        &-item{
-            width: 100%;
-            min-height: 60px;
-
-
-            &-right{
-                margin-right: 5px;
-
-                .del-btn{
-                    width: 20px;
-                    height: 20px;
-                    font-size: 0.7em;
-                }
-            }
-        }
-
-        &-checkbox{
-            width: 20px;
-            height: 20px;
-        }
-
     }
 }
 </style>
