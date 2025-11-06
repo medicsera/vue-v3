@@ -3,7 +3,7 @@
     <div class="page__container">
       <SearchBar v-model="searchQuery" @open-modal="showModal = true" />
       <TaskList
-        :tasks="filteredTasks"
+        :tasks="filteredTasks, sortedTasks"
         @delete-task="deleteTask"
         @toggle-completed="toggleCompleted"
       />
@@ -32,6 +32,13 @@ export default {
       );
     });
 
+    const sortedTasks = computed(() => {
+      tasks.value.slice().sort((a,b) => {
+        if (a.completed === b.completed) return 0;
+        return a.completed ? 1 : -1;
+      })
+    })
+
     function addTask(task) {
       tasks.value.push(task);
       showModal.value = false;
@@ -39,8 +46,11 @@ export default {
     }
 
     function deleteTask(id) {
-      tasks.value = tasks.value.filter((t) => t.id !== id);
-      saveTasks();
+      if (confirm("Вы точно хотите удалить эту задачу?")){
+        tasks.value = tasks.value.filter((t) => t.id !== id);
+        saveTasks();
+      }
+      
     }
 
     function toggleCompleted(id) {
@@ -65,6 +75,7 @@ export default {
       showModal,
       searchQuery,
       filteredTasks,
+      sortedTasks,
       addTask,
       deleteTask,
       toggleCompleted,
@@ -73,15 +84,6 @@ export default {
 };
 </script>
 
-<style scoped>
-.open-modal-btn {
-  font-size: 1.5em;
-  background: #DFC7FF;
-  padding: 10px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 12px;
-}
+<style scoped lang="scss">
+
 </style>

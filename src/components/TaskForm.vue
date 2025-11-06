@@ -54,7 +54,6 @@ export default {
     @include flex-center;
     align-items: center;
     z-index: 1000;
-    
 
     &-task{
         background: $color-dark-purple;
