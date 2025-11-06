@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="page__container">
-      <SearchBar v-model="searchQuery" />
+      <SearchBar v-model="searchQuery" @open-modal="showModal = true" />
       <TaskList
         :tasks="filteredTasks"
         @delete-task="deleteTask"

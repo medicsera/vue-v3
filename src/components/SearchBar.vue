@@ -10,7 +10,7 @@
       />
       <img class="search-task-lupe" src="../assets/lupe.svg"/>
     </div>
-    <button class="open-modal-btn" @click="showModal = true">+</button>
+    <button class="open-modal-btn" @click="$emit('open-modal')">+</button>
   </div>
 </template>
 
