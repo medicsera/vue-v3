@@ -55,7 +55,6 @@ function toggleTheme() {
     isDark.value = !isDark.value;
     applyTheme()
     localStorage.setItem('app-theme', isDark.value ? 'dark' : 'light');
-    console.log("тык")
 }
 
 onMounted(() => {
