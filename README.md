@@ -24,26 +24,26 @@
 ## Структура проекта
 
 │
-├── public/
-│ └── icon.svg
-├── src/
-│ ├── assets/
-│ ├── components/
-│ │ ├── TaskItem.vue
-│ │ ├── TaskList.vue
-│ │ ├── TaskForm.vue
-│ │ ├── SearchBar.vue
-│ │ └── ThemeToggle.vue
-│ ├── scss/
-│ │ ├── base.scss
-│ │ ├── mixins.scss
-│ │ └── variables.scss
-│ ├── App.vue
-│ ├── main.js
-│ └── style.css
-│
-├── index.html
-└── README.md
+├── public/  
+│ └── icon.svg  
+├── src/  
+│ ├── assets/  
+│ ├── components/  
+│ │ ├── TaskItem.vue  
+│ │ ├── TaskList.vue  
+│ │ ├── TaskForm.vue  
+│ │ ├── SearchBar.vue  
+│ │ └── ThemeToggle.vue  
+│ ├── scss/  
+│ │ ├── base.scss  
+│ │ ├── mixins.scss  
+│ │ └── variables.scss  
+│ ├── App.vue  
+│ ├── main.js  
+│ └── style.css  
+│  
+├── index.html  
+└── README.md  
 
 ## Технологии
 
