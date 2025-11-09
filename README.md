@@ -1,5 +1,71 @@
-# Vue 3 + Vite
+# To Do List на Vue 3
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Простой и функциональный To-Do List, реализованный на Vue v3.
+Приложение поддерживает добавление, редактирование, удаление и завершение задач, а также поиск и переключение темы оформления.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+![Главная страница](/screenshots/image.png)
+![Наведение на задачу](/screenshots/image-1.png)
+![Выполненная задача](/screenshots/image-2.png)
+![Форма добавления задачи](/screenshots/image-3.png)
+![Темный тема. Главная страница](/screenshots/image-4.png)
+![Темная тема. Форма добавления задачи](/screenshots/image-5.png)
+
+## Основные возможности
+
+- Добавление, редактирование, удаление задач
+- Отметка задачи как выполненной
+- Автоматическое перемещение завершённых задач вниз
+- Поиск по задачам
+- Модальное окно для ввода новой задачи
+- Переключение светлой и тёмной темы
+- Сохранение задач в localStorage
+- Адаптивная верстка под разные экраны
+
+## Структура проекта
+
+│
+├── public/
+│ └── icon.svg
+├── src/
+│ ├── assets/
+│ ├── components/
+│ │ ├── TaskItem.vue
+│ │ ├── TaskList.vue
+│ │ ├── TaskForm.vue
+│ │ ├── SearchBar.vue
+│ │ └── ThemeToggle.vue
+│ ├── scss/
+│ │ ├── base.scss
+│ │ ├── mixins.scss
+│ │ └── variables.scss
+│ ├── App.vue
+│ ├── main.js
+│ └── style.css
+│
+├── index.html
+└── README.md
+
+## Технологии
+
+- Vue 3 (Composition API)
+- Vite
+- SCSS (вынос переменных, миксинов)
+- Локальное хранение (`localStorage`)
+
+## Чек-лист приёмки
+
+- Проект создан и запущен через Vite.
+- Используются компоненты Vue (`.vue` файлы).
+- Реализована передача данных между компонентами через props и emit.
+- Используется реактивное состояние (`ref`, `reactive`).
+- Применяются `computed` и `watch`.
+- Модальное окно реализовано через условный рендеринг (`v-if`).
+- Реализованы основные операции: добавление, редактирование, удаление, завершение задачи.
+- Есть переключатель темы (через Tailwind или состояние Vue).
+- Присутствует поиск по задачам.
+- Стиль и структура соответствуют макету.
+- Пайплайн сборки работает и проект задеплоен.
+- В `README.md` есть ссылка на деплой.
+
+[Автор](https://github.com/medicsera)
+[GitHub Pages](https://medicsera.github.io/vue-v3/)
