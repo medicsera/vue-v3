@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/vue-v3/',
   plugins: [vue()],
   resolve: {
     alias: {
@@ -19,6 +20,5 @@ export default defineConfig({
         `
       }
     }
-  },
-  base: '/vue-v3/'
+  }
 })
