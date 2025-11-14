@@ -132,6 +132,7 @@ function cancelEdit() {
 
       &-right {
         margin-right: 5px;
+        opacity: 1;
 
         .del-btn {
           width: 20px;
