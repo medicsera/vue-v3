@@ -63,6 +63,7 @@ function cancelEdit() {
       align-items: center;
       margin-right: 30px;
       opacity: 0;
+      transition: opacity 0.5s;
 
       .del-btn {
         font-size: 0.9em;
