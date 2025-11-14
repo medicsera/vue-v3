@@ -24,7 +24,6 @@ defineEmits(['toggle-completed', 'delete-task', 'edit-task']);
 
 @include respond-to(mobile) {
   .task {
-    width: 220px;
     font-size: 1.1em;
     padding: 20px 0px;
   }

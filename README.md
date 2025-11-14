@@ -67,5 +67,5 @@
 - Пайплайн сборки работает и проект задеплоен.
 - В `README.md` есть ссылка на деплой.
 
-[Автор](https://github.com/medicsera)
+[Автор](https://github.com/medicsera)  
 [GitHub Pages](https://medicsera.github.io/vue-v3/)
