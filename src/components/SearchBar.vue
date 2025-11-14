@@ -20,7 +20,7 @@ export default {
 <style scoped lang="scss">
 .search-task-form {
   @include flex-center;
-  width: 500px;
+  width: 100%;
   height: 40px;
   max-width: 560px;
   padding-top: 20px;
@@ -63,23 +63,29 @@ export default {
 @include respond-to(mobile) {
   .search-task-form {
     height: 30px;
-    width: 220px;
 
     .search-task {
       width: 160px;
       margin: 0 5px;
-    }
 
-    .search-task-input {
+      .search-task-input {
       width: 110px;
       font-size: 0.9em;
     }
 
+      .search-task-lupe{
+      width: 22px;
+      margin-right: 0;
+      margin-left: 5px;
+    }
+    }
     .open-modal-btn {
       height: 30px;
       width: 30px;
       font-size: 1.3em;
     }
+    
+    
   }
 }
 </style>
