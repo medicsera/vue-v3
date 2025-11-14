@@ -30,3 +30,11 @@ body {
     }
   }
 }
+
+@include respond-to(mobile) {
+  .page {
+    &__container {
+    width: 80%;    
+    }
+  }
+}
