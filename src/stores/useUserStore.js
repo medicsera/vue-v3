@@ -8,7 +8,7 @@ export const useUserStore = defineStore("user", {
 
   actions: {
     register(email, password) {
-      if (!/\S+@\S+\.S+/.text(email)) return { error: "Некорректный email" };
+      if (!/\S+@\S+\.\S+/.test(email)) return { error: "Некорректный email" };
       if (this.users.some((u) => u.email === email))
         return { error: "Такой email уже зарегистрирован" };
 
