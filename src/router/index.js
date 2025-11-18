@@ -1,0 +1,27 @@
+import { createRouter, createWebHistory } from "vue-router";
+import LoginView from "../views/LoginView.vue";
+import TodoView from "../views/TodoView.vue";
+import { useUserStore } from "../stores/useUserStore";
+import { def } from "@vue/shared";
+
+const routes = [
+    { path: '/', redirect: '/login' },
+    { path: '/login', component: LoginView},
+    { path: '/todo', component: TodoView, meta: {requiresAuth: true} }
+];
+
+const router = createRouter({
+    history: createWebHistory('/vue-v3'),
+    routes
+});
+
+router.beforeEach((to,from,next) => {
+    const user = useUserStore();
+    if (to.meta.requiresAuth && !user.currentUser){
+        next('/login');
+    }   else {
+        next();
+    }
+});
+
+export default router;
