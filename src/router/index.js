@@ -1,12 +1,16 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LoginView from "../views/LoginView.vue";
 import TodoView from "../views/TodoView.vue";
+import AboutView from "../views/AboutView.vue";
 import { useUserStore } from "../stores/useUserStore";
 import { def } from "@vue/shared";
+import RegistrationView from "../views/RegistrationView.vue";
 
 const routes = [
     { path: '/', redirect: '/login' },
-    { path: '/login', component: LoginView},
+    { path: '/login', component: LoginView },
+    { path: '/register', component: RegistrationView },
+    { path: '/about', component: AboutView },
     { path: '/todo', component: TodoView, meta: {requiresAuth: true} }
 ];
 

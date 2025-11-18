@@ -6,13 +6,22 @@
       <img class="search-task-lupe" src="../assets/lupe.svg" />
     </div>
     <button class="open-modal-btn" @click="$emit('open-modal')">+</button>
+    <button class="logout" @click="logout">
+      <img class="exit" src="../assets/exit.svg">
+    </button>
   </div>
 </template>
 
-<script>
-export default {
-  props: ['modelValue'],
-};
+<script setup>
+
+import { defineEmits } from "vue";
+
+const emit = defineEmits(['open-modal','logout'])
+
+function logout(){
+  emit('logout')
+}
+
 </script>
 
 
@@ -28,7 +37,7 @@ export default {
   .search-task {
     display: flex;
     align-items: center;
-    margin: 0 20px 0 0;
+    margin: 0 10px 0 0;
     border: 4px;
     border-radius: 10px;
     background: $color-white;
@@ -57,6 +66,18 @@ export default {
     width: 40px;
     @include border;
     background: $color-light-purple;
+    margin-right: 10px
+  }
+
+  .logout{
+    @include border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-light-purple;
+    width: 40px;
+    height: 40px;
+    
   }
 }
 
@@ -69,23 +90,24 @@ export default {
       margin: 0 5px;
 
       .search-task-input {
-      width: 110px;
-      font-size: 0.9em;
+        width: 110px;
+        font-size: 0.9em;
+      }
+
+      .search-task-lupe {
+        width: 22px;
+        margin-right: 0;
+        margin-left: 5px;
+      }
     }
 
-      .search-task-lupe{
-      width: 22px;
-      margin-right: 0;
-      margin-left: 5px;
-    }
-    }
     .open-modal-btn {
       height: 30px;
       width: 30px;
       font-size: 1.3em;
     }
-    
-    
+
+
   }
 }
 </style>

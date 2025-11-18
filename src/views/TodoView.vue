@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="page__container">
-      <SearchBar v-model="searchQuery" @open-modal="showModal = true" />
+      <SearchBar v-model="searchQuery" @open-modal="showModal = true" @logout="handleLogout" />
       <TaskList
         :tasks="sortedTasks"
         @toggle-completed="toggleCompleted"
@@ -38,7 +38,11 @@ export default {
     const router = useRouter();
 
     function addTask(task){
-      todoStore.addTask(task)
+      const taskWithUser = {
+        ...task,
+        email: userStore.currentUser.email
+      }
+      todoStore.addTask(taskWithUser)
       showModal.value = false;
     }
 
@@ -72,6 +76,12 @@ export default {
         return a.completed ? 1 : -1;
       });
     });
+
+    function handleLogout() {
+      userStore.logout();
+      (useUserStore)
+      router.push('/login')
+    }
    
 
     return {
@@ -82,6 +92,7 @@ export default {
       deleteTask,
       toggleCompleted,
       editTask,
+      handleLogout,
     };
   },
 };
