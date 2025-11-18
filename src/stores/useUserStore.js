@@ -28,7 +28,7 @@ export const useUserStore = defineStore("user", {
           (u) => u.email === email && u.password === password
         );
 
-        if (!user) return { error: "Неверный email или пароль" };
+        if (!user) return { error: "Неверный пароль" };
 
         this.currentUser = { email };
         return { success: true };
