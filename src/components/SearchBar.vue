@@ -66,7 +66,11 @@ function logout(){
     width: 40px;
     @include border;
     background: $color-light-purple;
-    margin-right: 10px
+    margin-right: 10px;
+    transition: 0.3s ease;
+    &:hover{
+        background: $color-purple;
+      }
   }
 
   .logout{
@@ -77,7 +81,10 @@ function logout(){
     background-color: $color-light-purple;
     width: 40px;
     height: 40px;
-    
+    transition: 0.3s ease;
+    &:hover{
+        background: $color-purple;
+      }
   }
 }
 

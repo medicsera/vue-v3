@@ -82,6 +82,11 @@ export default {
         padding-left: 20px;
         font-size: $stat-font-size;
         outline: none;
+        transition: 0.3s ease;
+
+          &:hover {
+            background: $color-grey;
+          }
       }
 
       .modal-task-btns {
@@ -90,20 +95,30 @@ export default {
         justify-content: space-between;
 
         .modal-task-cancel {
-          background: $color-red;
+          background: $color-light-red;
           font-size: $stat-font-size*0.9;
           color: $color-white;
           border: 0;
           border-radius: 5px;
           padding: 5px;
+          transition: 0.3s ease;
+
+          &:hover {
+            background: $color-red;
+          }
         }
 
         .modal-task-add {
-          background: $color-green;
+          background: $color-light-green;
           font-size: $stat-font-size*0.9;
           color: $color-black;
           border: 0;
           border-radius: 5px;
+          transition: 0.3s ease;
+
+          &:hover {
+            background: $color-green;
+          }
         }
       }
     }
@@ -124,5 +139,4 @@ export default {
     }
   }
 }
-
 </style>

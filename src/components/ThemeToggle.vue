@@ -78,6 +78,10 @@ onMounted(() => {
     z-index: 1000;
     right: 25px;
     bottom: 25px;
+    transition: 0.3s ease;
+    &:hover{
+        background: var(--color-switch-bg);
+    }
 
     .theme-svg {
         color: var(--color-font);

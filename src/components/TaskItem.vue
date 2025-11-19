@@ -73,6 +73,11 @@ function cancelEdit() {
         color: var(--color-btn-img);
         border-radius: 5px;
         border: 0;
+        transition: 0.3s ease;
+
+        &:hover {
+          background: $color-purple;
+        }
       }
 
     }
@@ -100,6 +105,7 @@ function cancelEdit() {
     height: 28px;
     margin: 0 10px;
     accent-color: var(--color-btn-bg);
+    transition: 0.3s ease;
   }
 
 
@@ -111,6 +117,7 @@ function cancelEdit() {
     &.completed {
       color: $color-green;
       text-decoration: line-through;
+      
     }
   }
 }
@@ -147,6 +154,6 @@ function cancelEdit() {
       width: 20px;
       height: 20px;
     }
-    }
+  }
 }
 </style>

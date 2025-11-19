@@ -3,26 +3,15 @@
     <div class="login-reg__container">
       <h1>Вход</h1>
       <form class="form" @submit.prevent="login">
-        <input
-          class="form-input"
-          v-model="email"
-          placeholder="Email"
-          required
-        />
-        <input
-          class="form-input"
-          v-model="password"
-          placeholder="Password"
-          required
-        />
+        <input class="form-input" v-model="email" placeholder="Email" required />
+        <input class="form-input" v-model="password" placeholder="Password" required />
         <button class="form-btn" type="submit">Войти</button>
-        <p class="error" v-if="error">{{ error }}</p>
+        <p class="error" :class="{ show: error }" v-show="error">{{ error }}</p>
       </form>
       <div class="toggle-auth">
         <p>Нет аккаунта?</p>
         <router-link class="link" to="/register">
-          Зарегистрироваться</router-link
-        >
+          Зарегистрироваться</router-link>
       </div>
     </div>
     <ThemeToggle />
