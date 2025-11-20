@@ -254,10 +254,12 @@ function keyUpHandler(e) {
 }
 
 onMounted(() => {
+    document.body.classList.add('about-bg')
     document.addEventListener('keydown', keyDownHandler);
     document.addEventListener('keyup', keyUpHandler);
 });
 onUnmounted(() => {
+    document.body.classList.remove('about-bg')
     document.removeEventListener('keydown', keyDownHandler);
     document.removeEventListener('keyup', keyUpHandler);
     clearInterval(obstacleInterval);
@@ -270,7 +272,7 @@ onUnmounted(() => {
 
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 body {
     background: #202124;
 }
