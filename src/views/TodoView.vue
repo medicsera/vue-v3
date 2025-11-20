@@ -15,6 +15,7 @@
       />
     </div>
     <ThemeToggle />
+    <AboutToggle />
   </div>
 </template>
 
@@ -27,9 +28,10 @@ import ThemeToggle from "../components/ThemeToggle.vue";
 import { useTodoStore } from "../stores/useTodoStore";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/useUserStore";
+import AboutToggle from "../components/AboutToggle.vue";
 
 export default {
-  components: { TaskList, TaskForm, SearchBar, ThemeToggle },
+  components: { TaskList, TaskForm, SearchBar, ThemeToggle, AboutToggle },
   setup() {
     const showModal = ref(false);
     const searchQuery = ref("");

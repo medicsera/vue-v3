@@ -15,6 +15,8 @@
       </div>
     </div>
     <ThemeToggle />
+    <AboutToggle />
+
   </div>
 </template>
 
@@ -23,6 +25,7 @@ import { ref } from "vue";
 import { useUserStore } from "../stores/useUserStore";
 import { useRouter } from "vue-router";
 import ThemeToggle from "../components/ThemeToggle.vue";
+import AboutToggle from "../components/AboutToggle.vue";
 
 const email = ref("");
 const password = ref("");

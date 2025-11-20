@@ -1,30 +1,34 @@
 <template>
   <div class="search-task-form">
     <div class="search-task">
-      <input class="search-task-input" type="text" placeholder="Search task" :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)" />
+      <input
+        class="search-task-input"
+        type="text"
+        placeholder="Search task"
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
+      />
       <img class="search-task-lupe" src="../assets/lupe.svg" />
     </div>
     <button class="open-modal-btn" @click="$emit('open-modal')">+</button>
     <button class="logout" @click="logout">
-      <img class="exit" src="../assets/exit.svg">
+      <img class="exit" src="../assets/exit.svg" />
     </button>
   </div>
 </template>
 
 <script setup>
-
+defineProps({
+  modelValue: String,
+});
 import { defineEmits } from "vue";
 
-const emit = defineEmits(['open-modal','logout'])
+const emit = defineEmits(["open-modal", "logout"]);
 
-function logout(){
-  emit('logout')
+function logout() {
+  emit("logout");
 }
-
 </script>
-
-
 
 <style scoped lang="scss">
 .search-task-form {
@@ -68,12 +72,13 @@ function logout(){
     background: $color-light-purple;
     margin-right: 10px;
     transition: 0.3s ease;
-    &:hover{
-        background: $color-purple;
-      }
+
+    &:hover {
+      background: $color-purple;
+    }
   }
 
-  .logout{
+  .logout {
     @include border;
     display: flex;
     align-items: center;
@@ -82,9 +87,10 @@ function logout(){
     width: 40px;
     height: 40px;
     transition: 0.3s ease;
-    &:hover{
-        background: $color-purple;
-      }
+
+    &:hover {
+      background: $color-purple;
+    }
   }
 }
 
@@ -114,7 +120,15 @@ function logout(){
       font-size: 1.3em;
     }
 
+    .logout {
+      height: 30px;
+      width: 30px;
 
+      .exit {
+        width: 18px;
+        height: 18px;
+      }
+    }
   }
 }
 </style>
