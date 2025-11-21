@@ -29,6 +29,9 @@
                 }"></div>
             </div>
         </div>
+        <button v-if="hasPlayed" class="return-btn">
+            <router-link to="/todo"><img src="../assets/exit.svg"></router-link>
+        </button>
     </template>
 
 <script setup>
@@ -61,7 +64,7 @@ const bestScore = ref(
 const PACK_GAP = 200;
 const FIELD_WIDTH = 600;
 
-const frames = [cat1,cat2]
+const frames = [cat1, cat2]
 
 let obstacleInterval = null;
 let jumpInterval = null;
@@ -69,6 +72,7 @@ let fallInterval = null;
 let jumpTimeout = null;
 let canSpawnNextPack = true;
 let runningInterval = null;
+let hasPlayed = false
 
 function spawnObstaclePack() {
     const count = Math.floor(Math.random() * 4) + 1;
@@ -129,7 +133,7 @@ function stopJump() {
 
 function moveObstacles() {
     if (!obstacles.value.length) spawnObstaclePack();
-
+    
     obstacleInterval = setInterval(() => {
         for (let i = 0; i < obstacles.value.length; i++) {
             obstacles.value[i].left -= speed.value
@@ -141,6 +145,7 @@ function moveObstacles() {
                 dinoBottom.value < obstacleHeight;
             if (collides) {
                 gameOver.value = true;
+                hasPlayed = true;
                 stopRunningAnimation()
 
                 if (score.value > bestScore.value) {
@@ -358,5 +363,16 @@ body {
     position: absolute;
     background: #5f6368;
     opacity: 0.85;
+}
+
+.return-btn {
+    position: fixed;
+    z-index: 100;
+    left: 25px;
+    bottom: 25px;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    background: #5f6368;
 }
 </style>
