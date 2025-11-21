@@ -61,7 +61,7 @@ const safeMargin = 5;
 const bestScore = ref(
     parseInt(parseInt(localStorage.getItem('catBestScore') || '0', 10))
 )
-const PACK_GAP = 200;
+const PACK_GAP = 250;
 const FIELD_WIDTH = 600;
 
 const frames = [cat1, cat2]
